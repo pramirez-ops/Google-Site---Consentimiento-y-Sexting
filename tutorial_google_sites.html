@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Cómo crear tu sitio web en Google Sites</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #ef4444;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* ÍNDICE */
+        .table-of-contents {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-of-contents h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .table-of-contents ol {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .table-of-contents a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
+
+        /* SECCIONES */
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        section h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* PASOS */
+        .step {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            float: left;
+        }
+
+        .step h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .step p {
+            margin-left: 50px;
+            margin-bottom: 0.8rem;
+        }
+
+        .step ul {
+            margin-left: 50px;
+            margin-bottom: 1rem;
+            list-style-position: inside;
+        }
+
+        .step li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* CAJAS DE ATENCIÓN */
+        .note, .tip, .warning, .example {
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .note {
+            border-left-color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .tip {
+            border-left-color: var(--success);
+            background-color: rgba(16, 185, 129, 0.05);
+        }
+
+        .warning {
+            border-left-color: var(--warning);
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+
+        .example {
+            border-left-color: var(--accent);
+            background-color: rgba(245, 158, 11, 0.05);
+        }
+
+        .note strong, .tip strong, .warning strong, .example strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .note strong {
+            color: var(--primary);
+        }
+
+        .tip strong {
+            color: var(--success);
+        }
+
+        .warning strong {
+            color: var(--warning);
+        }
+
+        .example strong {
+            color: var(--accent);
+        }
+
+        /* IMÁGENES SIMULADAS */
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e0e7ff 100%);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .image-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* VIÑETAS ESTILIZADAS */
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0 0.8rem 2.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* BOTÓN */
+        .btn-group {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: #d97706;
+        }
+
+        /* TABLA */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 8px 8px 0 0;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 0.95rem;
+            }
+
+            .step p, .step ul {
+                margin-left: 45px;
+            }
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* SCROLL SMOOTH */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>🌐 Cómo crear tu Sitio Web en Google Sites</h1>
+        <p>Tutorial completo para estudiantes de 3º ESO: Consentimiento Digital y Sexting</p>
+    </header>
+
+    <div class="container">
+        <!-- TABLA DE CONTENIDOS -->
+        <div class="table-of-contents">
+            <h2>📋 Índice del Tutorial</h2>
+            <ol>
+                <li><a href="#intro">Introducción: ¿Qué es Google Sites?</a></li>
+                <li><a href="#paso1">Paso 1: Acceder a Google Sites</a></li>
+                <li><a href="#paso2">Paso 2: Crear un nuevo sitio</a></li>
+                <li><a href="#paso3">Paso 3: Renombrar tu sitio</a></li>
+                <li><a href="#paso4">Paso 4: Cambiar el tema (colores)</a></li>
+                <li><a href="#paso5">Paso 5: Agregar la página de inicio</a></li>
+                <li><a href="#paso6">Paso 6: Crear nuevas páginas (pestañas)</a></li>
+                <li><a href="#paso7">Paso 7: Agregar contenido</a></li>
+                <li><a href="#paso8">Paso 8: Subir imágenes y multimedia</a></li>
+                <li><a href="#paso9">Paso 9: Personalizar el menú de navegación</a></li>
+                <li><a href="#paso10">Paso 10: Publicar y compartir</a></li>
+                <li><a href="#estructura">Estructura recomendada para tu sitio</a></li>
+                <li><a href="#consejos">Consejos finales</a></li>
+            </ol>
+        </div>
+
+        <!-- INTRODUCCIÓN -->
+        <section id="intro">
+            <h2>Introducción: ¿Qué es Google Sites?</h2>
+            <p>Google Sites es una herramienta <strong>gratuita</strong> que te permite crear un sitio web sin necesidad de saber programación. Es ideal para:</p>
+            <ul class="feature-list">
+                <li>Crear tu portafolio o proyecto escolar</li>
+                <li>Compartir información de manera organizada</li>
+                <li>Colaborar con otras personas en tiempo real</li>
+                <li>Publicar tu contenido de forma profesional</li>
+            </ul>
+
+            <div class="note">
+                <strong>Requisito importante:</strong> Necesitas una cuenta de Google (Gmail). Si no tienes, puedes crear una de forma gratuita en gmail.com
+            </div>
+
+            <p>En este tutorial aprenderás a crear tu sitio web sobre <strong>Consentimiento Digital y Sexting</strong>, incluyendo:</p>
+            <ul style="margin-left: 2rem; list-style-position: inside;">
+                <li>Definición y conceptos clave</li>
+                <li>Riesgos y consecuencias legales</li>
+                <li>Recursos de ayuda y denuncia</li>
+                <li>Tu propio análisis y reflexiones</li>
+            </ul>
+        </section>
+
+        <!-- PASO 1 -->
+        <section id="paso1">
+            <h2>Paso 1: Acceder a Google Sites</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Abre tu navegador web</h4>
+                <p>Puede ser Chrome, Firefox, Safari o cualquier navegador que uses habitualmente.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Ve a sites.google.com</h4>
+                <p>Escribe en la barra de direcciones: <strong>sites.google.com</strong></p>
+                <div class="image-placeholder">
+                    <div class="icon">🌐</div>
+                    <p>Aquí verás la página principal de Google Sites con el botón "Crear"</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Inicia sesión si es necesario</h4>
+                <p>Si no estás conectado a tu cuenta de Google, verás un botón "Iniciar sesión". Haz clic y usa tu email de Gmail y contraseña.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Asegúrate de estar en la cuenta de Google correcta (la de tu escuela o personal, según corresponda).
+            </div>
+        </section>
+
+        <!-- PASO 2 -->
+        <section id="paso2">
+            <h2>Paso 2: Crear un nuevo sitio</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Busca el botón "+ Crear"</h4>
+                <p>En la página principal de Google Sites, verás un botón con un signo más (+) que dice "Crear" o "Crear sitio". Haz clic en él.</p>
+                <div class="image-placeholder">
+                    <div class="icon">➕</div>
+                    <p>Botón "Crear" en la esquina inferior derecha de la pantalla</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Elige un tema (plantilla)</h4>
+                <p>Google Sites te mostrará varias opciones de temas. Para este proyecto, elige:</p>
+                <ul>
+                    <li><strong>"En blanco"</strong> - Para más libertad en diseño</li>
+                    <li>O cualquier tema que te guste (puedes cambiar después)</li>
+                </ul>
+                <div class="image-placeholder">
+                    <div class="icon">🎨</div>
+                    <p>Pantalla con opciones de plantillas para elegir</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Espera a que cargue</h4>
+                <p>Google Sites abrirá el editor. Esto toma unos segundos. Verás un área blanca en el centro donde puedes comenzar a trabajar.</p>
+            </div>
+
+            <div class="warning">
+                <strong>Atención:</strong> Es normal que tarde un poco. NO cierres la página ni actualices mientras se está cargando.
+            </div>
+        </section>
+
+        <!-- PASO 3 -->
+        <section id="paso3">
+            <h2>Paso 3: Renombrar tu sitio</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Ubica el nombre del sitio</h4>
+                <p>En la parte superior izquierda verás "Sitio sin título" o similar.</p>
+                <div class="image-placeholder">
+                    <div class="icon">📝</div>
+                    <p>El nombre del sitio aparece en la parte superior izquierda</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Haz clic en el nombre</h4>
+                <p>Haz clic sobre el texto "Sitio sin título" para editarlo.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Escribe el nuevo nombre</h4>
+                <p>Borra el texto actual y escribe un nombre para tu sitio. Algunas ideas:</p>
+                <ul>
+                    <li>"Consentimiento Digital" [Tu nombre]</li>
+                    <li>"Sexting y Privacidad"</li>
+                    <li>"Derechos Digitales"</li>
+                    <li>"Navegando con Seguridad"</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Presiona Enter</h4>
+                <p>Presiona la tecla Enter para guardar el nombre.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Elige un nombre claro y descriptivo que refleje el contenido de tu sitio.
+            </div>
+        </section>
+
+        <!-- PASO 4 -->
+        <section id="paso4">
+            <h2>Paso 4: Cambiar el tema (colores y estilos)</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Abre el menú de temas</h4>
+                <p>En la parte superior derecha, verás una paleta de colores 🎨. Haz clic en ella.</p>
+                <div class="image-placeholder">
+                    <div class="icon">🎨</div>
+                    <p>Botón de tema (paleta de colores) en la esquina superior derecha</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Elige un color primario</h4>
+                <p>Se abrirá un panel con opciones de color. Puedes elegir:</p>
+                <ul>
+                    <li>Un color que te guste</li>
+                    <li>Colores que representen tu tema (azul para seguridad, rojo para alerta, etc.)</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Cambia la fuente si quieres</h4>
+                <p>También puedes cambiar el tipo de letra. Elige algo legible (como "Roboto" o "Lato").</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Cierra el menú</h4>
+                <p>Haz clic fuera del panel o presiona ESC para cerrar.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo de diseño:</strong> Para un tema educativo, usa colores profesionales pero amigables. Azules, verdes o naranjas funcionan bien.
+            </div>
+        </section>
+
+        <!-- PASO 5 -->
+        <section id="paso5">
+            <h2>Paso 5: Agregar contenido a la página de inicio</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Haz clic en el área blanca</h4>
+                <p>Verás una página en blanco. Haz clic en el área central para comenzar a agregar contenido.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Busca el botón "+"</h4>
+                <p>En el editor, verás un signo más (+) sobre la página. Haz clic en él.</p>
+                <div class="image-placeholder">
+                    <div class="icon">➕</div>
+                    <p>Botón "+" en el centro de la página para agregar elementos</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Elige el tipo de contenido</h4>
+                <p>Se abrirá un menú con opciones:</p>
+                <ul>
+                    <li><strong>Texto</strong> - Para párrafos y títulos</li>
+                    <li><strong>Encabezado</strong> - Para títulos grandes</li>
+                    <li><strong>Imagen</strong> - Para fotos</li>
+                    <li><strong>Video</strong> - Para videos de YouTube</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Ejemplo: Agregar un título</h4>
+                <p>Selecciona "Encabezado" y escribe algo como:</p>
+                <div class="example">
+                    <strong>Ejemplo:</strong><br>
+                    "Consentimiento Digital y Sexting: Derechos y Responsabilidades"
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Agrega una introducción</h4>
+                <p>Haz clic en el botón "+" otra vez y elige "Texto". Escribe una introducción corta (3-4 líneas) explicando de qué trata tu sitio.</p>
+                <div class="example">
+                    <strong>Ejemplo:</strong><br>
+                    "Este sitio web tiene como objetivo educar a adolescentes sobre el consentimiento digital, los riesgos del sexting no consensuado y los derechos que nos protegen en internet. Aquí encontrarás información sobre cómo cuidarte, qué hacer si algo sale mal, y dónde pedir ayuda."
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Mantén la introducción clara, simple y accesible para otros estudiantes de tu edad.
+            </div>
+        </section>
+
+        <!-- PASO 6 -->
+        <section id="paso6">
+            <h2>Paso 6: Crear nuevas páginas (pestañas)</h2>
+            <p>Para organizar tu sitio, necesitarás crear varias páginas. Así es cómo:</p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Abre el menú de páginas</h4>
+                <p>En el lado izquierdo de la pantalla verás un panel. Busca un icono de menú (≡) o "Páginas".</p>
+                <div class="image-placeholder">
+                    <div class="icon">📄</div>
+                    <p>Panel de páginas en el lado izquierdo del editor</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Haz clic en "+"</h4>
+                <p>Junto a "Páginas", verás un signo más (+). Haz clic para crear una nueva página.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Elige el tipo de página</h4>
+                <p>Google Sites te preguntará qué tipo de página deseas. Elige:</p>
+                <ul>
+                    <li><strong>"Página en blanco"</strong> - Para mayor flexibilidad</li>
+                    <li>O una plantilla prediseñada si prefieres</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Nombra la página</h4>
+                <p>Te pedirá un nombre. Escribe el nombre de la nueva sección. Por ejemplo:</p>
+                <ul>
+                    <li>"¿Qué es el consentimiento digital?"</li>
+                    <li>"Sexting y privacidad"</li>
+                    <li>"Marco legal"</li>
+                    <li>"¿Dónde pedir ayuda?"</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Repite el proceso</h4>
+                <p>Crea todas las páginas que necesites (al menos 4-5). Verás todas listadas en el panel izquierdo.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> El orden en que las crees es el orden que aparecerán en el menú de navegación. Puedes reorganizarlas después.
+            </div>
+        </section>
+
+        <!-- PASO 7 -->
+        <section id="paso7">
+            <h2>Paso 7: Agregar contenido a cada página</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Selecciona una página</h4>
+                <p>En el panel izquierdo, haz clic en el nombre de la página que quieres editar.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Agregar un título</h4>
+                <p>Haz clic en el área de contenido y usa el botón "+" para agregar un "Encabezado" con el nombre de la sección.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Agregar párrafos de texto</h4>
+                <p>Usa el botón "+" para agregar "Texto" y escribe tu contenido. Puedes:</p>
+                <ul>
+                    <li>Escribir directamente</li>
+                    <li>Copiar información que hayas preparado en un documento</li>
+                    <li>Resumir lo que aprendiste en clase</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Usa listas para organizar</h4>
+                <p>En un párrafo de texto puedes hacer listas. Por ejemplo:</p>
+                <div class="image-placeholder">
+                    <div class="icon">📋</div>
+                    <p>Haz clic en el botón de lista (≡) para convertir texto en viñetas</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Formatea el texto</h4>
+                <p>Cuando escribes en Google Sites, puedes:</p>
+                <ul>
+                    <li>Hacer texto <strong>negrita</strong> (Ctrl + B)</li>
+                    <li>Hacer texto <em>cursiva</em> (Ctrl + I)</li>
+                    <li>Subrayar (Ctrl + U)</li>
+                    <li>Cambiar el tamaño de la fuente</li>
+                    <li>Cambiar el color</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <strong>Estructura sugerida para cada sección:</strong><br>
+                1. Un título (Encabezado H2)<br>
+                2. Una introducción (párrafo)<br>
+                3. El contenido principal (párrafos, listas)<br>
+                4. Una conclusión o reflexión personal<br>
+                5. Enlaces a recursos (opcional)
+            </div>
+        </section>
+
+        <!-- PASO 8 -->
+        <section id="paso8">
+            <h2>Paso 8: Subir imágenes y multimedia</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Haz clic en el botón "+"</h4>
+                <p>En la página donde quieres agregar una imagen, haz clic en el signo más (+).</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Elige "Imagen"</h4>
+                <p>En el menú que aparece, selecciona "Imagen".</p>
+                <div class="image-placeholder">
+                    <div class="icon">🖼️</div>
+                    <p>Menú de opciones para insertar elementos</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Sube o busca una imagen</h4>
+                <p>Se abrirá una ventana con opciones:</p>
+                <ul>
+                    <li><strong>"Subir"</strong> - Sube una imagen de tu computadora</li>
+                    <li><strong>"Buscar"</strong> - Busca en Google Imágenes</li>
+                    <li><strong>"Mis unidades"</strong> - Usa imágenes de Google Drive</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Selecciona la imagen</h4>
+                <p>Elige una imagen apropiada relacionada con tu contenido.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>Ajusta el tamaño</h4>
+                <p>Una vez insertada, puedes:</p>
+                <ul>
+                    <li>Cambiar el tamaño arrastrando los bordes</li>
+                    <li>Alinearla a izquierda, centro o derecha</li>
+                    <li>Agregar texto alternativo (importante para accesibilidad)</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>Importante:</strong> Respeta los derechos de autor. Usa imágenes con licencia creativa o busca "uso libre" en Google Imágenes.
+            </div>
+
+            <h3>Insertar videos de YouTube</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Haz clic en el botón "+"</h4>
+                <p>Como antes, abre el menú de elementos.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Elige "Video"</h4>
+                <p>En el menú, selecciona "Video" o "YouTube".</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Busca o pega la URL</h4>
+                <p>Puedes:</p>
+                <ul>
+                    <li>Buscar un video en YouTube</li>
+                    <li>Pegar el enlace de un video que ya conozcas</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Busca videos educativos sobre consentimiento, privacidad digital o seguridad en redes sociales.
+            </div>
+        </section>
+
+        <!-- PASO 9 -->
+        <section id="paso9">
+            <h2>Paso 9: Personalizar el menú de navegación</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Accede a la configuración</h4>
+                <p>En la parte superior derecha, verás un icono de engranaje (⚙️). Haz clic en él.</p>
+                <div class="image-placeholder">
+                    <div class="icon">⚙️</div>
+                    <p>Botón de configuración en la esquina superior derecha</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Selecciona "Navegación"</h4>
+                <p>En el menú de configuración, busca la opción "Navegación" o "Menú".</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Organiza el orden de las páginas</h4>
+                <p>Aquí puedes:</p>
+                <ul>
+                    <li>Cambiar el orden de las páginas (arrastrando)</li>
+                    <li>Ocultar páginas si no quieres que aparezcan en el menú</li>
+                    <li>Renombrar páginas</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Guarda los cambios</h4>
+                <p>Cierra el menú de configuración.</p>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Organiza las páginas en un orden lógico: Inicio → Consentimiento → Sexting → Legal → Ayuda.
+            </div>
+        </section>
+
+        <!-- PASO 10 -->
+        <section id="paso10">
+            <h2>Paso 10: Publicar y compartir tu sitio</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Haz clic en "Publicar"</h4>
+                <p>En la esquina superior derecha, verás un botón "Publicar" (puede estar en azul). Haz clic en él.</p>
+                <div class="image-placeholder">
+                    <div class="icon">📤</div>
+                    <p>Botón "Publicar" en la parte superior derecha del editor</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Configura los permisos</h4>
+                <p>Se abrirá un cuadro de diálogo. Tienes opciones:</p>
+                <ul>
+                    <li><strong>"Mostrar en la búsqueda"</strong> - Si quieres que aparezca en Google</li>
+                    <li><strong>"Permitir comentarios"</strong> - Si quieres que otros comenten</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Obtén el enlace</h4>
+                <p>Google te dará una URL única para tu sitio. Puedes:</p>
+                <ul>
+                    <li>Copiar el enlace</li>
+                    <li>Compartirlo por email</li>
+                    <li>Compartir el enlace con tu profesor/a</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Comparte con tu profesor/a</h4>
+                <p>Copia el enlace y envíalo a tu profesor/a o comparte según las instrucciones de la clase.</p>
+                <div class="image-placeholder">
+                    <div class="icon">🔗</div>
+                    <p>Ejemplo de URL: sites.google.com/view/mi-sitio-web</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>Consejo:</strong> Antes de publicar, revisa todo el contenido: verificar ortografía, que las imágenes se vean bien, que la navegación funcione.
+            </div>
+        </section>
+
+        <!-- ESTRUCTURA RECOMENDADA -->
+        <section id="estructura">
+            <h2>Estructura recomendada para tu sitio</h2>
+            <p>Para que tu sitio sea completo y educativo, aquí te sugerimos qué incluir en cada página:</p>
+
+            <h3>📄 Página 1: Inicio</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Título atractivo<br>
+                • Una imagen relacionada con el tema<br>
+                • Introducción breve (¿de qué trata este sitio?)<br>
+                • Índice o enlace a las demás páginas<br>
+                • Tus datos (nombre, curso, escuela)
+            </div>
+
+            <h3>🤝 Página 2: ¿Qué es el consentimiento digital?</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Definición clara del consentimiento<br>
+                • Los 4 atributos (libre, informado, específico, revocable)<br>
+                • Ejemplos cotidianos (fotos, etiquetas, mensajes)<br>
+                • ¿Qué NO es consentimiento?<br>
+                • Cómo comunicar consentimiento claramente
+            </div>
+
+            <h3>📸 Página 3: Sexting y privacidad</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Definición de sexting consensuado<br>
+                • Definición de difusión no consensuada<br>
+                • Riesgos técnicos (velocidad, persistencia, anonimato)<br>
+                • Datos estadísticos sobre el problema<br>
+                • Señales de alerta (manipulación, sextorsión)<br>
+                • Medidas de privacidad (configuraciones de apps)
+            </div>
+
+            <h3>⚖️ Página 4: Marco legal</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Leyes argentinas importantes (Ley 26.150, 26.904, 27.736)<br>
+                • Edad de consentimiento legal<br>
+                • Consecuencias legales del sexting entre menores<br>
+                • Definición de grooming<br>
+                • Delitos relacionados (sextorsión, extorsión)
+            </div>
+
+            <h3>🆘 Página 5: ¿Dónde pedir ayuda?</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Números de teléfono importantes:<br>
+                &nbsp;&nbsp;- Línea 137 (violencia familiar y sexual)<br>
+                &nbsp;&nbsp;- Línea 144 (violencia de género)<br>
+                &nbsp;&nbsp;- Línea 102 (niñez y adolescencia)<br>
+                &nbsp;&nbsp;- 911 (emergencias)<br>
+                • Recursos locales de Tierra del Fuego<br>
+                • Qué hacer si sufres difusión de imágenes<br>
+                • Cómo denunciar en redes sociales
+            </div>
+
+            <h3>📚 Página 6: Reflexión personal (opcional)</h3>
+            <div class="example">
+                <strong>Contenido:</strong><br>
+                • Tu propia reflexión sobre el tema<br>
+                • Qué aprendiste<br>
+                • Por qué es importante el consentimiento digital<br>
+                • Mensajes para tus compañeros<br>
+                • Fuentes consultadas
+            </div>
+        </section>
+
+        <!-- CONSEJOS FINALES -->
+        <section id="consejos">
+            <h2>Consejos finales para un sitio web exitoso</h2>
+
+            <h3>✅ Checklist de calidad</h3>
+            <ul class="feature-list">
+                <li>El contenido es claro, correcto y educativo</li>
+                <li>Las páginas están organizadas en un orden lógico</li>
+                <li>La navegación funciona (todos los enlaces funcionan)</li>
+                <li>Las imágenes se ven bien y son relevantes</li>
+                <li>El texto está formateado (no es una pared de texto)</li>
+                <li>No hay errores de ortografía</li>
+                <li>El sitio se ve bien en celular y computadora</li>
+                <li>Incluiste tus datos (nombre, escuela, año)</li>
+                <li>Citaste tus fuentes</li>
+                <li>El tema de colores es consistente</li>
+            </ul>
+
+            <h3>💡 Consejos sobre el contenido</h3>
+            <div class="tip">
+                <strong>Sé claro y respetuoso:</strong> Recuerda que otros estudiantes de tu edad leerán esto. Usa lenguaje que entiendas y que sea accesible.
+            </div>
+
+            <div class="tip">
+                <strong>Usa ejemplos reales:</strong> Esto ayuda a que la gente entienda mejor. Pero sin nombres reales de personas.
+            </div>
+
+            <div class="tip">
+                <strong>Incluye recursos:</strong> Que la gente sepa dónde pedir ayuda. Esto puede salvar vidas.
+            </div>
+
+            <div class="tip">
+                <strong>Sé empático:</strong> Si hablas de víctimas de sexting, no las culpes. La responsabilidad es de quien difunde sin permiso.
+            </div>
+
+            <h3>🎨 Consejos sobre el diseño</h3>
+            <div class="tip">
+                <strong>Menos es más:</strong> No sobrecargues la página con muchas imágenes. 1-2 imágenes por página es suficiente.
+            </div>
+
+            <div class="tip">
+                <strong>Usa colores consistentes:</strong> Mantén el mismo tema de color en todo el sitio.
+            </div>
+
+            <div class="tip">
+                <strong>Espacios en blanco:</strong> No llenes todo el espacio. El aire en la página ayuda a leer.
+            </div>
+
+            <div class="tip">
+                <strong>Fuentes legibles:</strong> Usa fuentes sin serif (como Roboto, Lato, Open Sans). Evita Comic Sans.
+            </div>
+
+            <h3>🚀 Antes de entregar</h3>
+            <table>
+                <tr>
+                    <th>Tarea</th>
+                    <th>Cómo verificar</th>
+                </tr>
+                <tr>
+                    <td>Revisar ortografía</td>
+                    <td>Lee todo el sitio lentamente. Pide que alguien más lo lea.</td>
+                </tr>
+                <tr>
+                    <td>Verificar enlaces</td>
+                    <td>Haz clic en todos los enlaces. Deben ir a la página correcta.</td>
+                </tr>
+                <tr>
+                    <td>Revisar en celular</td>
+                    <td>Abre tu sitio en un teléfono. ¿Se ve bien?</td>
+                </tr>
+                <tr>
+                    <td>Verificar imágenes</td>
+                    <td>¿Todas las imágenes aparecen? ¿Se ven claras?</td>
+                </tr>
+                <tr>
+                    <td>Publicar</td>
+                    <td>Haz clic en "Publicar" y obtén el enlace final.</td>
+                </tr>
+                <tr>
+                    <td>Compartir el enlace</td>
+                    <td>Cópialo y envíalo a tu profesor/a o comparte según se pida.</td>
+                </tr>
+            </table>
+
+            <h3>❓ Preguntas frecuentes</h3>
+            <div class="note">
+                <strong>¿Qué pasa si cometo un error después de publicar?</strong><br>
+                No hay problema. Puedes seguir editando. Los cambios se guardan automáticamente. Puedes "deshacer" cambios en el menú Editar.
+            </div>
+
+            <div class="note">
+                <strong>¿Puedo cambiar el nombre o el tema después?</strong><br>
+                Sí. En cualquier momento puedes entrar a Configuración y cambiar el nombre, colores o cualquier cosa.
+            </div>
+
+            <div class="note">
+                <strong>¿Qué pasa si se me olvida guardar?</strong><br>
+                Google Sites guarda automáticamente. No necesitas hacer nada especial.
+            </div>
+
+            <div class="note">
+                <strong>¿Cómo agrego un enlace a otra página web?</strong><br>
+                Escribe tu texto, selecciónalo, y usa Ctrl+K (o Cmd+K en Mac). Pega el enlace que quieres.
+            </div>
+
+            <div class="note">
+                <strong>¿Puedo hacer que solo vea mi profesor/a el sitio?</strong><br>
+                Sí. Antes de publicar, puedes elegir "Compartir con personas específicas" y darle acceso solo a tu profesor/a.
+            </div>
+        </section>
+
+        <!-- CIERRE -->
+        <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; text-align: center;">
+            <h2 style="color: white;">¡Listo para empezar?</h2>
+            <p style="color: white;">Ahora tienes todas las herramientas para crear un sitio web educativo sobre consentimiento digital y sexting. Recuerda:</p>
+            <ul class="feature-list" style="color: white;">
+                <li style="color: white;">Sé claro y respetuoso</li>
+                <li style="color: white;">Organiza bien la información</li>
+                <li style="color: white;">Cita tus fuentes</li>
+                <li style="color: white;">Verifica todo antes de entregar</li>
+            </ul>
+            <p style="color: white; margin-top: 2rem;"><strong>¡Tu sitio web puede ayudar a otros estudiantes a aprender sobre estos temas importantes!</strong></p>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>📚 Tutorial creado para estudiantes de 3º ESO</p>
+        <p>📧 Contacta a tu profesor/a si tienes dudas</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 Colegio Nacional de Ushuaia - Educación Tecnológica</p>
+    </footer>
+
+</body>
+</html>
