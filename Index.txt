@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Consentimiento y Sexting</title>
+
+  <meta name="description" content="Sitio educativo sobre consentimiento, sexting y ciudadanía digital.">
+  <meta name="keywords" content="ESI, ciudadanía digital, sexting, consentimiento, internet seguro">
+  <meta name="author" content="Patricia Ramirez">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      color:white;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius:20px;
+      padding:40px;
+      max-width:700px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    h1{
+      font-size:2.5rem;
+      margin-bottom:20px;
+    }
+
+    p{
+      font-size:1.1rem;
+      line-height:1.7;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 30px;
+      background:white;
+      color:#5b4bb7;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      background:#f0f0f0;
+    }
+
+    footer{
+      margin-top:30px;
+      font-size:0.9rem;
+      opacity:0.8;
+    }
+
+    @media(max-width:600px){
+
+      h1{
+        font-size:2rem;
+      }
+
+      p{
+        font-size:1rem;
+      }
+
+      .card{
+        padding:25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <h1>Consentimiento y Sexting</h1>
+
+    <p>
+      Espacio educativo sobre ciudadanía digital, consentimiento,
+      uso responsable de internet y prevención de riesgos digitales.
+    </p>
+
+    <a class="btn"
+       href="https://pramirez-ops.github.io/Google-Site---Consentimiento-y-Sexting/"
+       target="_blank">
+
+       Ingresar al sitio
+
+    </a>
+
+    <footer>
+      Proyecto educativo • Educación Tecnológica y ESI
+    </footer>
+
+  </div>
+
+</body>
+</html>
